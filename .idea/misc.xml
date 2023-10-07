@@ -3,7 +3,7 @@
   <component name="Black">
     <option name="executionMode" value="BINARY" />
     <option name="pathToExecutable" value="C:\Users\cecal\AppData\Local\Programs\Python\Python311\Scripts\black.exe" />
-    <option name="sdkUUID" value="d8df13d0-c83d-4faf-a9a7-51eace94309f" />
+    <option name="sdkName" value="Python 3.11 (Conlanger)" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (Conlanger)" project-jdk-type="Python SDK" />
 </project>
