@@ -27,6 +27,12 @@ class PhonemesSection:
         phonemes_to_add = [p.strip() for p in re.split('[, ]', phoneme_input) if
                            p.strip()]  # Split by space and comma and remove any empty entries
 
+        # Input validation: Ensure each phoneme cluster is no longer than three characters
+        for p in phonemes_to_add:
+            if len(p) > 3:
+                print(f"Error: Phoneme cluster '{p}' is too long!")  # This can be replaced with a GUI error message
+                return
+
         for new_phoneme_symbol in phonemes_to_add:
             # Check if the phoneme symbol already exists in the inventory
             if new_phoneme_symbol not in [phoneme.symbol for phoneme in self.phonemes]:
@@ -36,6 +42,7 @@ class PhonemesSection:
                 self.phonemes.append(new_phoneme)
 
         self.refresh_phoneme_display()
+        self.search_var.set('')  # Clear the input field after adding phonemes
 
     def delete_phoneme_logic(self):
         if self.selected_phoneme:
@@ -97,9 +104,3 @@ class PhonemesSection:
 
     def on_phoneme_selected(self, index):
         self.callback(self.phonemes[index])
-
-    def update_inspector(self, selected_phoneme_obj):
-        self.symbol_label.config(text=f"Symbol: {selected_phoneme_obj.symbol}")
-        self.type_label.config(text=f"Type: {selected_phoneme_obj.phoneme_type}")
-        self.ipa_label.config(text=f"IPA Symbol: {selected_phoneme_obj.ipa_symbol}")
-        self.description_label.config(text=f"Description: {selected_phoneme_obj.description}")

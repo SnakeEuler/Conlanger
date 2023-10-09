@@ -2,28 +2,7 @@
 
 import tkinter as tk
 
-def add_word(lexicon_data, word_entry, translation_entry, lexicon_listbox):
-    word = word_entry.get()
-    translation = translation_entry.get()
-    if word and translation:
-        lexicon_data[word] = translation
-        lexicon_listbox.insert(tk.END, word)
 
-def delete_word(lexicon_data, lexicon_listbox):
-    selected_word = lexicon_listbox.get(tk.ACTIVE)
-    if selected_word:
-        del lexicon_data[selected_word]
-        lexicon_listbox.delete(tk.ACTIVE)
-
-
-def on_word_select(lexicon_data, lexicon_listbox, word_entry, translation_entry, event):
-    selected_word = lexicon_listbox.get(tk.ACTIVE)
-    if selected_word:
-        word_entry.delete(0, tk.END)
-        word_entry.insert(0, selected_word)
-
-        translation_entry.delete(0, tk.END)
-        translation_entry.insert(0, lexicon_data[selected_word])
 
 
 def add_lexeme():

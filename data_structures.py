@@ -18,3 +18,10 @@ class GrammarRule:
         self.rule_type = rule_type  # e.g., "verb conjugation"
         self.description = description
         self.examples = []
+
+class Lexeme:
+    def __init__(self, lexeme, translation, description):
+        self.lexeme = lexeme
+        self.translation = translation
+        self.description = description
+        # You can add more attributes as needed
